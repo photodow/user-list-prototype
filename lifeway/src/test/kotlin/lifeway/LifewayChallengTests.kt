@@ -1,10 +1,10 @@
-package demo
+package lifeway
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class DemoApplicationTests {
+class LifewayChallengeTests {
 
 	@Test
 	fun contextLoads() {
