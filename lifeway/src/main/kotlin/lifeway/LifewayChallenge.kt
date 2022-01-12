@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.CrossOrigin
 import java.util.Optional
 
 @SpringBootApplication
@@ -50,13 +51,9 @@ class UserService(val db: UserRepository) {
 		}
 }
 
+@CrossOrigin("http://localhost:3000")
 @RestController
 class UserResource(val service: UserService) {
-    @GetMapping
-		fun index(): String {
-			return "<html><head><title>asdf</title><head><body>asdf</body></html>";
-		}
-
 		@GetMapping("/api/users")
     fun users(): List<User> = service.findUsers()
 
