@@ -1,0 +1,43 @@
+.#{$prefix}-user-list {
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  list-style-type: none;
+
+  &__container {
+    flex-grow: 1;
+    height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  &__header {
+    @include grid();
+    border-bottom: 2px solid $light-gray;
+    padding: spacing(.5) spacing(1.5);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  &__label {
+    color: $dark-gray;
+    padding: 0;
+    margin: 0;
+
+    @include label;
+
+    &:first-of-type {
+      @include column(1, 1);
+    }
+
+    &:last-of-type {
+      @include column(1, 4);
+    }
+  }
+
+  &__new {
+    margin-bottom: spacing(2);
+    @include column(1, 4);
+  }
+}

@@ -1,0 +1,52 @@
+.#{$prefix}-user-item {
+  display: block;
+  padding: spacing(1.5);
+  border-bottom: 1px solid $light-gray;
+  max-height: 500px;
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden;
+  transition: background-color .2s ease-in-out, padding .2s ease-in-out, max-height .2s ease-in-out, opacity .2s ease-in-out, visibility .2s ease-in-out;
+
+  @include grid();
+
+  &__primary {
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    color: $black;
+  }
+
+  &__secondary {
+    margin: 0;
+    padding: 0;
+    color: $dark-gray;
+
+    @include label;
+  }
+
+  &__brief {
+    @include column(3, 1);
+  }
+
+  &__actions {
+    @include column(1, 4);
+    display: flex;
+
+    & > * {
+      margin-right: spacing(.5);
+    }
+  }
+
+  &--deleted {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    visibility: hidden;
+  }
+
+  &:hover {
+    background-color: $light-gray;
+  }
+}

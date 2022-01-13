@@ -1,0 +1,16 @@
+@mixin grid () {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@mixin column ($colspan: 1, $offset: 1) {
+    grid-column: $offset / span $offset + $colspan - 1;
+}
+
+@mixin breakpoint ($width) {
+  @media (min-width: $width) {
+    @content
+  }
+}

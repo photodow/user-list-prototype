@@ -1,34 +1,49 @@
 import { useEffect, useState } from 'react';
-import logo from './img/logo.svg';
-import './App.scss';
-import getUsers from './utilities/getUsers.js';
+import { prefix } from './globals';
+import classnames from 'classnames';
+import Popup from './components/Popup';
+import UserList from './components/UserList';
+import PanelSwitcher from './components/PanelSwitcher';
+import Header from './components/Header';
+import UserForm from './components/UserForm';
 
 function App() {
+  const [autoOpen, setAutoOpen] = useState(false);
+  const [panel, setPanel] = useState(false);
+  const [activeUserId, setActiveUserId] = useState('');
 
-  const [users, setUsers] = useState([])
-
-  useEffect(async () => {
-    setUsers(await getUsers());
+  useEffect(() => {
+    setTimeout(() => {
+      setAutoOpen(true);
+    }, 1500)
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {users.map(user => user.name + ' ')}
-        </a>
-      </header>
-    </div>
+    <main className="lw-main">
+      <Popup open={autoOpen}>
+        <PanelSwitcher
+          aside={
+            <UserForm userId={activeUserId}
+              switchPanel={e => switchPanel('left', e)} />
+          }
+          activePanel={panel}>
+          <Header title="User list" active={autoOpen} />
+          <UserList
+            switchPanel={e => switchPanel('right', e)}
+          />
+        </PanelSwitcher>
+      </Popup>
+    </main>
   );
+
+  function switchPanel (panelName, e) {
+    e.preventDefault();
+    setPanel(panelName);
+    setActiveUserId(e.target.id);
+  }
 }
+
+
+
 
 export default App;

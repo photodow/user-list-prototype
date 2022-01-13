@@ -1,0 +1,25 @@
+.#{$prefix}-header {
+  background: $red;
+  overflow: hidden;
+  margin-bottom: spacing(2);
+  height: spacing(15);
+
+  &__title {
+    @include main-heading;
+    color: $white;
+    transform: rotate(0);
+    display: inline-block;
+    position: relative;
+    top: 0;
+    left: -10px;
+    transition: transform .4s ease-in-out, top .4s ease-in-out;
+    transition-delay: .2s;
+  }
+
+  &--active {
+    .#{$prefix}-header__title {
+      transform: rotate(-8deg);
+      top: 22px;
+    }
+  }
+}

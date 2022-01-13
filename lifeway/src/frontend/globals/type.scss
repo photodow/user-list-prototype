@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Damion&family=IBM+Plex+Sans:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap');
+
+@mixin main-heading {
+  font-family: 'Damion', cursive;
+  font-size: 9.375rem;
+  line-height: 1;
+}
+
+@mixin body-type {
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 400;
+}
+
+@mixin label {
+  font-size: .75rem;
+}
