@@ -1,3 +1,33 @@
 .#{$prefix}-text-input {
+  padding: spacing(1);
+  border-radius: spacing(.5);
+  border: 0;
+  border-bottom: 0px solid $dark-gray;
+  background: $light-gray;
+  color: $black;
+  transition: filter .2s ease-in-out;
+  @include body-type;
 
+  &:hover {
+    filter: brightness(.95);
+  }
+
+  &:focus {
+    outline: 2px solid $blue;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: spacing(2);
+    position:relative;
+
+  }
+
+  &__label {
+    color: $dark-gray;
+    margin-bottom: spacing(.5);
+    cursor: pointer;
+    @include label;
+  }
 }

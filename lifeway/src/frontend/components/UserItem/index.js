@@ -6,7 +6,7 @@ import Button from '../Button';
 import {ReactComponent as ReactEdit} from '@carbon/icons/svg/32/edit.svg';
 import {ReactComponent as ReactTrash} from '@carbon/icons/svg/32/trash-can.svg';
 
-function User ({ switchPanel, id, name, email, phone, deleteUserFromState }) {
+function User ({ switchPanel, index, id, name, email, phone, deleteUserFromState }) {
   const [status, setStatus] = useState('');
 
   // TODO: build in on entrance, or just first load?
@@ -19,11 +19,11 @@ function User ({ switchPanel, id, name, email, phone, deleteUserFromState }) {
         <p className={`${prefix}-user-item__secondary`}>{email || 'n/a'}</p>
       </div>
       <aside className={`${prefix}-user-item__actions`}>
-        <Button id={id} type="secondary" onClick={switchPanel}>
+        <Button data-userid={id} data-userindex={index} styleType="secondary" onClick={switchPanel}>
           <ReactEdit />
         </Button>
         <Button
-          type="danger"
+          styleType="danger"
           onClick={e => deleteItem(id, e)}
         >
           <ReactTrash />

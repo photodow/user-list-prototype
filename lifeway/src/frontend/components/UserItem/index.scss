@@ -26,15 +26,37 @@
   }
 
   &__brief {
-    @include column(3, 1);
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    @include column(2, 1);
+
+    @include breakpoint (400px) {
+        @include column(3, 1);
+    }
+
+    &::after {
+      content: '';
+      width: spacing(10);
+      height: 100%;
+      background: linear-gradient(90deg, rgba($white, 0), $white);
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: background .2s ease-in-out;
+    }
   }
 
   &__actions {
-    @include column(1, 4);
+    @include column(2, 3);
     display: flex;
 
     & > * {
       margin-right: spacing(.5);
+    }
+
+    @include breakpoint (400px) {
+        @include column(1, 4);
     }
   }
 
@@ -44,9 +66,5 @@
     padding-top: 0;
     padding-bottom: 0;
     visibility: hidden;
-  }
-
-  &:hover {
-    background-color: $light-gray;
   }
 }

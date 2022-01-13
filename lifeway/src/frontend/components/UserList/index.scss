@@ -28,16 +28,32 @@
     @include label;
 
     &:first-of-type {
-      @include column(1, 1);
+      @include column(2, 1);
     }
 
     &:last-of-type {
-      @include column(1, 4);
+      @include column(2, 3);
     }
   }
 
   &__new {
     margin-bottom: spacing(2);
-    @include column(1, 4);
+    @include column(2, 3);
+  }
+
+  @include breakpoint (400px) {
+      &__label {
+        &:first-of-type {
+          @include column(1, 1);
+        }
+
+        &:last-of-type {
+          @include column(1, 4);
+        }
+      }
+
+      &__new {
+        @include column(1, 4);
+      }
   }
 }

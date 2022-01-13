@@ -2,6 +2,9 @@ import { prefix } from '../../globals';
 import classnames from 'classnames';
 
 function PanelSwitcher ({ children, aside, activePanel = 'left' }) {
+
+  //trap focus?
+  
   return (
     <div className={classnames(`${prefix}-panel-switcher`, `${prefix}-panel-switcher--${activePanel}`)}>
       <div className={`${prefix}-panel-switcher__panel`}>

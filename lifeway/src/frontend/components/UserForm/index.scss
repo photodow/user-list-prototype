@@ -1,3 +1,19 @@
-.#{$prefix}-edit-form {
+.#{$prefix}-user-form {
+  @include grid();
+  width: 100%;
+  padding: spacing(2);
+  box-sizing: border-box;
 
+  &__actions,
+  &__input {
+    @include column(3, 1);
+  }
+
+  &__actions {
+    @include column(3, 1);
+
+    & > * {
+      margin-right: spacing(.5); // consider a button group component instead
+    }
+  }
 }

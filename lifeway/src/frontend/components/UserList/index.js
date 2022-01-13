@@ -1,22 +1,16 @@
 import { useEffect, useState } from 'react';
-import getUsers from '../../utilities/getUsers';
 import { prefix } from '../../globals';
 import Button from '../Button';
 import UserItem from '../UserItem';
 import {ReactComponent as ReactAdd} from '@carbon/icons/svg/32/add.svg';
 
-function UserList ({ switchPanel }) {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    getUsers().then(d => setUsers(d));
-  }, []);
-
+function UserList ({ users, sharedState, switchPanel }) {
   return (
     <article className={`${prefix}-user-list__container`}>
       <header className={`${prefix}-user-list__header`}>
         <Button
-          type="primary"
+          size="lg"
+          styleType="primary"
           className={`${prefix}-user-list__new`}
           onClick={switchPanel}
         >
@@ -26,11 +20,12 @@ function UserList ({ switchPanel }) {
         <p className={`${prefix}-user-list__label`}>Actions</p>
       </header>
       <ul className={`${prefix}-user-list`}>
-        {users.map((user, i) =>
+        {users.sort(sortUsers).map((user, i) =>
             <UserItem
               switchPanel={switchPanel}
-              key={i}
-              deleteUserFromState={() => deleteUserFromState(i)}
+              key={user.id}
+              index={i}
+              deleteUserFromState={() => sharedState.deleteUser(i)}
               {...user}
             />
           )}
@@ -38,9 +33,18 @@ function UserList ({ switchPanel }) {
     </article>
   );
 
-  function deleteUserFromState (index) {
-    users.splice(index, 1);
-    setUsers([...users]);
+  function sortUsers (a, b) {
+    const aa = a.name.toUpperCase();
+    const bb = b.name.toUpperCase();
+
+    if (aa < bb) {
+      return -1;
+    }
+    if (aa > bb) {
+      return 1;
+    }
+
+    return 0;
   }
 }
 
