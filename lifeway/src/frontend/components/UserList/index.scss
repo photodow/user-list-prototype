@@ -56,4 +56,21 @@
         @include column(1, 4);
       }
   }
+
+  &__empty {
+    text-align: left;
+    margin: spacing(4) auto;
+    max-width: 250px;
+    flex-grow: 1;
+
+    &-icon {
+      height: spacing(10);
+      fill: $dark-gray;
+    }
+
+    p {
+      color: $dark-gray;
+      margin-bottom: spacing(4);
+    }
+  }
 }

@@ -9,9 +9,6 @@ import {ReactComponent as ReactTrash} from '@carbon/icons/svg/32/trash-can.svg';
 function User ({ switchPanel, index, id, name, email, phone, deleteUserFromState }) {
   const [status, setStatus] = useState('');
 
-  // TODO: build in on entrance, or just first load?
-  // TODO: EMPTY STATE
-
   return (
     <li className={classnames(`${prefix}-user-item`, status)}>
       <div className={`${prefix}-user-item__brief`}>

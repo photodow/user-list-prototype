@@ -108,6 +108,7 @@ function UserForm ({ editUser, sharedState, switchPanel }) {
   function clearForm (e) {
     switchPanel(e);
     setUser(new User());
+    setDisabledSubmit(true);
 
     Object.keys(validationResults).forEach(key => {
       validationResults[key] = '';
@@ -138,15 +139,13 @@ function UserForm ({ editUser, sharedState, switchPanel }) {
     return true; // everything checks out
   }
 
-  function userHasChanged (user, userCopy) {
+  function userHasChanged (user, userCopy = {}) {
     const keys = Object.keys(user);
 
     for (let i = 0; i < keys.length; i++) {
       const key = keys[i];
 
       if (key !== 'id'
-        && user[key]
-        && userCopy[key]
         && user[key] !== userCopy[key]) {
         return true; // something is different!
       }
@@ -157,7 +156,7 @@ function UserForm ({ editUser, sharedState, switchPanel }) {
     e.preventDefault();
 
     saveUser(user).then((savedUser) => {
-      switchPanel(e);
+      clearForm(e);
       sharedState.saveUser(savedUser, editUser.index);
     });
   }

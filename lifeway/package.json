@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "npm run frontend:start && npm run server",
+    "start": "npm run frontend:build && npm run server",
     "server": "./gradlew bootRun",
     "frontend:start": "react-scripts start",
     "frontend:build": "react-scripts build"

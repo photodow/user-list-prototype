@@ -3,19 +3,13 @@ import { prefix } from '../../globals';
 import Button from '../Button';
 import UserItem from '../UserItem';
 import {ReactComponent as ReactAdd} from '@carbon/icons/svg/32/add.svg';
+import {ReactComponent as ReactFish} from '@carbon/icons/svg/32/fish--multiple.svg';
 
 function UserList ({ users, sharedState, switchPanel }) {
-  return (
+  return !users.length ? empty() : (
     <article className={`${prefix}-user-list__container`}>
       <header className={`${prefix}-user-list__header`}>
-        <Button
-          size="lg"
-          styleType="primary"
-          className={`${prefix}-user-list__new`}
-          onClick={switchPanel}
-        >
-          New <ReactAdd />
-        </Button>
+        {addButton()}
         <p className={`${prefix}-user-list__label`}>Name</p>
         <p className={`${prefix}-user-list__label`}>Actions</p>
       </header>
@@ -45,6 +39,29 @@ function UserList ({ users, sharedState, switchPanel }) {
     }
 
     return 0;
+  }
+
+  function addButton () {
+    return (
+      <Button
+        size="lg"
+        styleType="primary"
+        className={`${prefix}-user-list__new`}
+        onClick={switchPanel}
+      >
+        New <ReactAdd />
+      </Button>
+    );
+  }
+
+  function empty () {
+    return (
+      <div className={`${prefix}-user-list__empty`}>
+        <ReactFish className={`${prefix}-user-list__empty-icon`} />
+        <p>Your user list is empty right now. Start adding users to see them multiply.</p>
+        <p>{addButton()}</p>
+      </div>
+    );
   }
 }
 
