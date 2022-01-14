@@ -69,4 +69,11 @@
       border-color: $dark-gray;
     }
   }
+
+  &:disabled {
+    background-color: $light-gray;
+    box-shadow: none;
+    filter: brightness(1);
+    cursor: default;
+  }
 }

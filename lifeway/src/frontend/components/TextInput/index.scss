@@ -2,6 +2,8 @@
   padding: spacing(1);
   border-radius: spacing(.5);
   border: 0;
+  width: 100%;
+  box-sizing: border-box;
   border-bottom: 0px solid $dark-gray;
   background: $light-gray;
   color: $black;
@@ -16,12 +18,66 @@
     outline: 2px solid $blue;
   }
 
+  &__wrapper {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      right: spacing(.5);
+      border: spacing(.5) solid transparent;
+      width: spacing(1.5);
+      height: spacing(1.5);
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      z-index: 1;
+      opacity: 0;
+      text-indent: 200vh;
+      visibility: hidden;
+      transform: translateY(-50%) scale(0);
+      transform-origin: center middle;
+      background-color: $dark-gray;
+      background-repeat: no-repeat;
+      background-position: center center;
+      transition: opacity .2s ease-in-out, visibility .2s ease-in-out, transform .2s ease-in-out;
+    }
+
+    &::before {
+      background-color: $red;
+      content: 'Error';
+    }
+
+    &::after {
+      background-color: $green;
+      content: 'Valid';
+    }
+
+    &.error {
+        &::before {
+          background-image: url(../../img/close.svg);
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(-50%) scale(1);
+        }
+    }
+
+    &.valid {
+      &::after {
+        background-image: url(../../img/checkmark.svg);
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(-50%) scale(1);
+      }
+    }
+  }
+
   &__group {
     display: flex;
     flex-direction: column;
     margin-bottom: spacing(2);
-    position:relative;
-
+    position: relative;
   }
 
   &__label {

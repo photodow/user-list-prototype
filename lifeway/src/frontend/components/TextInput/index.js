@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { prefix } from '../../globals';
 import classnames from 'classnames';
 
-function TextInput ({id, label, className, onChange, value = '', ...props}) {
+function TextInput ({validate, id, label, className, onChange, value = '', ...props}) {
 
   const [valueState, setValueState] = useState(value);
 
@@ -16,18 +16,20 @@ function TextInput ({id, label, className, onChange, value = '', ...props}) {
         className={`${prefix}-text-input__label`}>
         {label}
       </label>}
-      <input
-        type="text"
-        id={id}
-        value={valueState}
-        onChange={e => {
-          handleChange(e);
-          if (typeof onChange === 'function') {
-            onChange(e);
-          }
-        }}
-        className={classnames(`${prefix}-text-input`, classnames)} {...props}
-      />
+      <div className={classnames(`${prefix}-text-input__wrapper`, validate)}>
+        <input
+          type="text"
+          id={id}
+          value={valueState}
+          onChange={e => {
+            handleChange(e);
+            if (typeof onChange === 'function') {
+              onChange(e);
+            }
+          }}
+          className={classnames(`${prefix}-text-input`, classnames)} {...props}
+        />
+      </div>
     </div>
   );
 

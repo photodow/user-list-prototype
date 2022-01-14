@@ -6,11 +6,15 @@
 
   &__actions,
   &__input {
-    @include column(3, 1);
+    @include column(4, 1);
+
+    @include breakpoint (500px) {
+      @include column(3, 1);
+    }
   }
 
   &__actions {
-    @include column(3, 1);
+    margin-top: spacing(2);
 
     & > * {
       margin-right: spacing(.5); // consider a button group component instead
