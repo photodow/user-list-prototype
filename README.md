@@ -1,6 +1,6 @@
-# Lifeway User List
+# User List
 
-An application for Lifeway that lists users.
+An application/prototype that explores listing users.
 
 ## How to build and run
 
