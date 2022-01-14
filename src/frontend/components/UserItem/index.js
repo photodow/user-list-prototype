@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import deleteUser from '../../utilities/deleteUser';
 import { prefix } from '../../globals';
 import classnames from 'classnames';

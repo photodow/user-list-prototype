@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { prefix } from '../../globals';
 import classnames from 'classnames';
 

@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-import { prefix } from './globals';
-import classnames from 'classnames';
 import getUsers from './utilities/getUsers';
 import Popup from './components/Popup';
 import UserList from './components/UserList';

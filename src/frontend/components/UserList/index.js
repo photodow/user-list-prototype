@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { prefix } from '../../globals';
 import Button from '../Button';
 import UserItem from '../UserItem';
