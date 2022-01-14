@@ -1,7 +1,7 @@
 {
-  "name": "lifeway",
+  "name": "lifeway-user-list",
   "version": "1.0.0",
-  "description": "",
+  "description": "An application for Lifeway that lists users.",
   "main": "src/index.js",
   "scripts": {
     "start": "npm run frontend:build && npm run server",
