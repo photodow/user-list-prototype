@@ -1,0 +1,30 @@
+{
+  "short_name": "Lifeway User List",
+  "name": "An application for Lifeway that lists users.",
+  "icons": [
+    {
+      "src": "user.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "user.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "user192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "user512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#323232",
+  "background_color": "#323232"
+}
